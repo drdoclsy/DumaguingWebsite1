@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnceInkpopChingu</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="signin-body"> <!-- Add the signin-body class here -->
+    <section id="header">
+        <img src="img/logo.png" class="logo" alt="" width="100" height="100">
+        <div>
+            <ul id="navbar"> 
+                <li><a href="index.html">Home</a></li>
+                <li><a class="shop.html">Shop</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html"><i class="fas fa-shopping-bag"></i></a></li>
+                <li><a class="active" href="signin.html">Sign In</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <div class="center">
+        <button id="show-login">Login</button>
+    </div>
+    <div class="popup">
+        <div class="close-btn">&times;</div>
+        <div class="form">
+            <h2> Log In</h2>
+            <div class="form-element">
+                <label for="email">Email</label>
+                <input type="text" id="email" placeholder="Enter Email">
+            </div>
+            <div class="form-element">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter Password">
+            </div>
+            <div class="form-element">
+                <input type="checkbox" id="remember-me">
+                <label for="remember-me">Remember Me</label>
+            </div>
+            <div class="form-element">
+                <button>Log In</button>
+            </div>
+            <div class="form-element">
+                <a href="#">Forgot Password?</a>
+            </div>
+        </div>
+    </div>
+ 
+    <div class="center1">
+        <button id="show-signin">Sign In</button>
+    </div>
+    <div class="popup1">
+        <div class="close-btn1">&times;</div>
+        <div class="form1">
+            <h2> Sign In</h2>
+            <div class="form-element1">
+                <label for="email">Email</label>
+                <input type="text" id="email" placeholder="Enter Email">
+            </div>
+            <div class="form-element1">
+                <label for="first-name">First Name</label>
+                <input type="text" id="first-name" placeholder="Enter First Name">
+            </div>
+            <div class="form-element1">
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name" placeholder="Enter Last Name">
+            </div>
+            <div class="form-element1">
+                <label for="password">Enter New Password</label>
+                <input type="password" id="password" placeholder="Enter New Password">
+            </div>
+            <div class="form-element1">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" placeholder="Enter Password Again">
+            </div>
+            <div class="form-element1">
+                <input type="checkbox" id="remember-me">
+                <label for="remember-me">Remember Me</label>
+            </div>
+            <div class="form-element1">
+                <button>Sign In</button>
+            </div>
+            <div class="form-element1">
+                <a href="#">Forgot Password?</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector("#show-login").addEventListener("click", function(){
+            document.querySelector(".popup").classList.add("active");
+        });
+
+        document.querySelector(".popup .close-btn").addEventListener("click", function(){
+            document.querySelector(".popup").classList.remove("active");
+        });
+
+        document.querySelector("#show-signin").addEventListener("click", function(){
+            document.querySelector(".popup1").classList.add("active1");
+        });
+
+        document.querySelector(".popup1 .close-btn1").addEventListener("click", function(){
+            document.querySelector(".popup1").classList.remove("active1");
+        });
+    </script>
+</body>
+</html>

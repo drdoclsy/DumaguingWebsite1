@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OnceInkpopChingu</title>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<section id="header">
+<img src="img/logo.png" class="logo" alt="" width="100" height="100">
+<div>
+<ul id="navbar"> 
+<li><a href="index.html">Home</a></li>
+<li><a class="active" href="shop.html">Shop</a></li>
+<li><a href="blog.html">Blog</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="contact.html">Contact</a></li>
+<li><a href="cart.html"><i class="fas fa-shopping-bag"></i></a></li>
+<li><a href="signin.html">Sign In</a></li>
+<li><a href="checkout.html">Checkout</a></li>
+</ul>
+</div>
+</section>
+
+<section id="prodetails" class="section-p1">
+    <div class="single-pro-image">
+        <img src="img/P1.jpg" width="100%" id="MainImg" alt="">
+
+        <div class="small-img-group">
+            <div class="small-img-col">
+                <img src="img/p1.1.jpg" width="100%" class="small-img" alt="">
+            </div>
+            <div class="small-img-col">
+                <img src="img/p1.2.jpg" width="100%" class="small-img" alt="">
+            </div>
+            <div class="small-img-col">
+                <img src="img/p1.3.jpg" width="100%" height="70%" class="small-img" alt="">
+            </div>
+            <div class="small-img-col">
+                <img src="img/p1.4.jpg" width="100%" class="small-img" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="single-pro-details">
+        <h6>Home / Offical Merchandise</h6>
+        <h4>TWICE WORLD TOUR III front and back (Black)</h4>
+        <h2>PHP 2000</h2>
+        <select>
+            <option>Select Size</option>
+            <option>Small</option>
+            <option>Medium</option>
+            <option>Large</option>
+            <option>x-Large</option>
+            <option>XX-Large</option>
+            <option>XXX-Large</option>
+        </select>
+        <input type="number" value="1">
+        <button id="addToCartBtn" class="normal" onclick="window.location.href='cart.html';">Add to Bag</button>
+        <h4>Product Details</h4>
+        <span>Immerse yourself in the authentic essence of TWICE's global phenomenon with the exclusive TWICE 4TH WORLD TOUR III front and back black can. This limited-edition collector's item stands as a testament to the electrifying energy and unparalleled talent showcased during TWICE's fourth world tour.</span>
+    </div>
+</section>
+
+<section id="newsletter" class="section-p1 section-m1">
+    <div class="newstext">
+        <h4> Sign up for Newsletter</h4>
+        <p> Get E-Mail updates about our latest shop and <span>special offers.</span></p>
+    </div>
+    <div class="form">
+        <input type="text" placeholder="Your E-Mail Address">
+        <button class="normal"> Sign Up </button>
+    </div>
+</section>
+
+<footer class="section-p1">
+    <div class="column">
+        <img class="logo" src="img/logo.png" alt="" width="100" height="100">
+        <h4>Contact</h4>
+        <p><strong>Address:</strong> Manila Philippines</p>
+        <p><strong>Hours:</strong> 10:00am - 10:00pm Mon-Sat</p>
+        <p><strong>Phone:</strong> +63 123456789</p>
+        <div class="follow">
+            <h4>Follow Us!</h4>
+            <div class="icon">
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-pinterest-p"></i>
+                <i class="fab fa-youtube"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="col">
+    <h4> About </h4>
+    <a href="#">About Us</a>
+    <a href="#">Delivery Information</a>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms & Conditions</a>
+    <a href="#">Contact Us</a>
+    </div>
+
+    <div class="col">
+        <h4> My Account </h4>
+        <a href="#">Sign In</a>
+        <a href="#">View Cart</a>
+        <a href="#">Wishlist</a>
+        <a href="#">Track my Order</a>
+        <a href="#">Help</a>
+        </div>
+
+        <div class="col install">
+            <h4>Install App</h4>
+            <p>From App Store or Google Play</p>
+            <div class="row">
+            <img src="img/app.jpg" alt="">
+            <img src="img/play.jpg" alt="">
+            </div>
+            <p>Secured Payments</p>
+            <img src="img/pay.png" alt="">
+        </div>
+
+
+        <div class="copyright">
+            <p>@2023, OnceInkpopChingu Shop TM</p>
+        </div>
+</footer>
+
+<script>
+   var MainImg = document.getElementById("MainImg");
+   var smallimg = document.getElementsByClassName("small-img");
+
+   smallimg[0].onclick = function(){
+    MainImg.src = smallimg[0].src;
+   }
+   smallimg[1].onclick = function(){
+    MainImg.src = smallimg[1].src;
+   }
+   smallimg[2].onclick = function(){
+    MainImg.src = smallimg[2].src;
+   }
+   smallimg[3].onclick = function(){
+    MainImg.src = smallimg[3].src;
+   }
+</script>
+
+<script>
+    // Function to add an item to the cart
+    function addItemToCart(name, price) {
+        var cartItems = document.getElementById('cart-items');
+        var newRow = document.createElement('tr');
+        newRow.innerHTML = `
+            <td><button class="remove-item"><i class="fas fa-times-circle"></i></button></td>
+            <td><img src="img/P1.jpg" alt=""></td>
+            <td>${name}</td>
+            <td class="item-price">${price}</td>
+            <td><input type="number" class="item-quantity" value="1"></td>
+            <td class="item-subtotal">${price}</td>
+        `;
+        cartItems.appendChild(newRow);
+        updateCartTotals(); // Update cart totals after adding item
+    }
+
+ // Add event listener to "Add to Bag" button
+document.addEventListener('DOMContentLoaded', function() {
+    var addToBagBtn = document.querySelector('#addToCartBtn');
+    addToBagBtn.addEventListener('click', function() {
+        // Get product details
+        var productName = document.querySelector('#prodetails h4').innerText;
+        var productPrice = document.querySelector('#prodetails h2').innerText;
+
+        // Add item to cart
+        addItemToCart(productName, productPrice);
+    });
+});
+
+    // Function to update cart totals
+    function updateCartTotals() {
+        var itemPriceElements = document.querySelectorAll(".item-price");
+        var itemQuantityInputs = document.querySelectorAll(".item-quantity");
+        var subtotalElement = document.querySelector("#cart-subtotal");
+        var totalElement = document.querySelector("#total");
+
+        let subtotal = 0;
+        itemPriceElements.forEach((priceElement, index) => {
+            const price = parseInt(priceElement.textContent.replace("PHP ", ""));
+            const quantity = parseInt(itemQuantityInputs[index].value);
+            subtotal += price * quantity;
+        });
+        
+        subtotalElement.textContent = "PHP " + subtotal;
+        totalElement.textContent = "PHP " + subtotal; // Update total without discount
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const removeItemButtons = document.querySelectorAll(".remove-item");
+        const itemQuantityInputs = document.querySelectorAll(".item-quantity");
+
+        // Add event listeners for removing items from cart
+        removeItemButtons.forEach(button => {
+            button.addEventListener("click", function() {
+                const row = button.closest("tr");
+                row.remove();
+                updateCartTotals(); // Recalculate totals after removing item
+            });
+        });
+
+        // Add event listeners for changing item quantities
+        itemQuantityInputs.forEach(input => {
+            input.addEventListener("change", updateCartTotals);
+        });
+    });
+</script>
+
+</body>
+</html>
+

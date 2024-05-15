@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OnceInkpopChingu</title>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<section id="header">
+    <img src="img/logo.png" class="logo" alt="" width="100" height="100">
+    <div>
+        <ul id="navbar"> 
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a class="active" href="cart.html"><i class="fas fa-shopping-bag"></i></a></li>
+            <li><a href="signin.html">Sign In</a></li>
+        </ul>
+    </div>
+</section>
+
+<section id="page-header" class="about-header">
+    <h2>Thank You for Shopping with us!</h2>
+    <p>You are always welcome to shop again!</p>
+</section>
+
+<section id="cart" class="section-p1">
+    <table width="100%">
+        <thead>
+            <tr>
+                <td>Remove</td>
+                <td>Image</td>
+                <td>Product</td>
+                <td>Price</td>
+                <td>Quantity</td>
+                <td>Subtotal</td>
+            </tr>
+        </thead>
+        <tbody id="cart-items">
+            <tr>
+                <td><button class="remove-item"><i class="fas fa-times-circle"></i></button></td>
+                <td><img src="img/P1.jpg" alt=""></td>
+                <td>TWICE WORLD TOUR III front and back (Black)</td>
+                <td class="item-price">PHP 2000</td>
+                <td><input type="number" class="item-quantity" value="1"></td>
+                <td class="item-subtotal">PHP 2000</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<section id="cart-add" class="section-p1">
+    <div id="coupon">
+        <h3>Enter Code</h3>
+        <div>
+            <input type="text" placeholder="Enter Code">
+            <button class="normal">Apply</button>
+        </div>
+    </div>
+
+    <div id="subtotal">
+        <h3>Cart Total</h3>
+        <table>
+            <tr>
+                <td>Cart Subtotal</td>
+                <td id="cart-subtotal">PHP 2000</td>
+            </tr>
+            <tr>
+                <td>Shipping</td>
+                <td>Free</td>
+            </tr>
+            <tr>
+                <td><strong>Total</strong></td>
+                <td><strong id="total">PHP 2000</strong></td>
+            </tr>
+        </table>
+        <div class="pro" onclick="window.location.href='checkout.html';">
+            <button id="checkout-btn" class="normal">Proceed to Checkout</button>
+        </div>
+    </div>
+</section>
+
+<footer class="section-p1">
+    <div class="column">
+        <img class="logo" src="img/logo.png" alt="" width="100" height="100">
+        <h4>Contact</h4>
+        <p><strong>Address:</strong> Manila Philippines</p>
+        <p><strong>Hours:</strong> 10:00am - 10:00pm Mon-Sat</p>
+        <p><strong>Phone:</strong> +63 123456789</p>
+        <div class="follow">
+            <h4>Follow Us!</h4>
+            <div class="icon">
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-pinterest-p"></i>
+                <i class="fab fa-youtube"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="col">
+        <h4> About </h4>
+        <a href="#">About Us</a>
+        <a href="#">Delivery Information</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
+        <a href="#">Contact Us</a>
+    </div>
+
+    <div class="col">
+        <h4> My Account </h4>
+        <a href="#">Sign In</a>
+        <a href="#">View Cart</a>
+        <a href="#">Wishlist</a>
+        <a href="#">Track my Order</a>
+        <a href="#">Help</a>
+    </div>
+
+    <div class="col install">
+        <h4>Install App</h4>
+        <p>From App Store or Google Play</p>
+        <div class="row">
+            <img src="img/app.jpg" alt="">
+            <img src="img/play.jpg" alt="">
+        </div>
+        <p>Secured Payments</p>
+        <img src="img/pay.png" alt="">
+    </div>
+
+    <div class="copyright">
+        <p>@2023, OnceInkpopChingu Shop TM</p>
+    </div>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const removeButtons = document.querySelectorAll('.remove-item');
+        removeButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const row = button.closest('tr');
+                row.remove();
+                updateCartTotals();
+            });
+        });
+
+        const quantityInputs = document.querySelectorAll('.item-quantity');
+        quantityInputs.forEach(input => {
+            input.addEventListener('change', function() {
+                updateCartTotals();
+            });
+        });
+    });
+
+    function updateCartTotals() {
+        const itemRows = document.querySelectorAll('#cart-items tr');
+        let subtotal = 0;
+        itemRows.forEach(row => {
+            const priceElement = row.querySelector('.item-price');
+            const quantityInput = row.querySelector('.item-quantity');
+            const subtotalElement = row.querySelector('.item-subtotal');
+            if (priceElement && quantityInput && subtotalElement) {
+                const price = parseFloat(priceElement.textContent.replace('PHP ', ''));
+                const quantity = parseInt(quantityInput.value);
+                const itemSubtotal = price * quantity;
+                subtotal += itemSubtotal;
+                subtotalElement.textContent = 'PHP ' + itemSubtotal.toFixed(2);
+            }
+        });
+        const cartSubtotalElement = document.getElementById('cart-subtotal');
+        const totalElement = document.getElementById('total');
+        cartSubtotalElement.textContent = 'PHP ' + subtotal.toFixed(2);
+        totalElement.textContent = 'PHP ' + subtotal.toFixed(2);
+    }
+</script>
+
+<script>
+    // Define the discount code and its discount percentage
+    const discountCode = "TWICEISLIFE";
+    const discountPercentage = 0.1; // 10%
+
+    // Variable to keep track of whether the discount has been redeemed
+    let discountRedeemed = false;
+
+    // Function to handle applying the discount
+    function applyDiscount(code) {
+        // Check if the entered code matches the discount code
+        if (code === discountCode) {
+            if (!discountRedeemed) {
+                // Calculate discounted subtotal
+                const subtotalElement = document.getElementById('cart-subtotal');
+                const subtotal = parseFloat(subtotalElement.textContent.replace('PHP ', ''));
+                const discountedSubtotal = subtotal * (1 - discountPercentage);
+
+                // Update the total with discount
+                const totalElement = document.getElementById('total');
+                totalElement.textContent = 'PHP ' + discountedSubtotal.toFixed(2);
+
+                // Display notification
+                alert('Discount applied successfully! 10% off has been applied to your total.');
+
+                // Mark discount as redeemed
+                discountRedeemed = true;
+            } else {
+                // Display notification if the discount has already been redeemed
+                alert('This discount code has already been redeemed.');
+            }
+        } else {
+            // Display notification if the entered code does not match
+            alert('The entered code does not exist.');
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const removeButtons = document.querySelectorAll('.remove-item');
+        removeButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const row = button.closest('tr');
+                row.remove();
+                updateCartTotals();
+            });
+        });
+
+        const quantityInputs = document.querySelectorAll('.item-quantity');
+        quantityInputs.forEach(input => {
+            input.addEventListener('change', function() {
+                updateCartTotals();
+            });
+        });
+
+        // Apply discount when the Apply button is clicked
+        const applyButton = document.querySelector('#coupon button');
+        applyButton.addEventListener('click', function() {
+            const codeInput = document.querySelector('#coupon input').value;
+            applyDiscount(codeInput);
+        });
+    });
+
+    function updateCartTotals() {
+        const itemRows = document.querySelectorAll('#cart-items tr');
+        let subtotal = 0;
+        itemRows.forEach(row => {
+            const priceElement = row.querySelector('.item-price');
+            const quantityInput = row.querySelector('.item-quantity');
+            const subtotalElement = row.querySelector('.item-subtotal');
+            if (priceElement && quantityInput && subtotalElement) {
+                const price = parseFloat(priceElement.textContent.replace('PHP ', ''));
+                const quantity = parseInt(quantityInput.value);
+                const itemSubtotal = price * quantity;
+                subtotal += itemSubtotal;
+                subtotalElement.textContent = 'PHP ' + itemSubtotal.toFixed(2);
+            }
+        });
+        const cartSubtotalElement = document.getElementById('cart-subtotal');
+        const totalElement = document.getElementById('total');
+        cartSubtotalElement.textContent = 'PHP ' + subtotal.toFixed(2);
+        totalElement.textContent = 'PHP ' + subtotal.toFixed(2);
+    }
+</script>
+
+</body>
+</html>

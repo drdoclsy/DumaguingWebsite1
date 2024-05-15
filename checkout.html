@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnceInkpopChingu</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="checkout-style.css">
+</head>
+<body class="body"> 
+    <section id="header">
+        <img src="img/logo.png" class="logo" alt="" width="100" height="100">
+        <div>
+            <ul id="navbar"> 
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html"><i class="fas fa-shopping-bag"></i></a></li>
+                <li><a href="signin.html">Sign In</a></li>
+                <li><a class="active" href="checkout.html">Checkout</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <div class="progress-container">
+        <div class="progress-bar">
+            <div class="progress-step active">Shipping</div>
+            <div class="progress-step">Payment</div>
+            <div class="progress-step">Review</div>
+        </div>
+    </div>
+    
+    <div class="form-container">
+       <h2 class="form-title">Payment Details</h2>
+       <form action="" class="checkout-form">
+        <div class="input-line">
+            <label for="name">Name on Card</label>
+            <input type="text" name="name" id="name" placeholder="Your name and surname">
+        </div>
+        <div class="input-line">
+            <label for="card">Card number</label>
+            <input type="text" name="card" id="card" placeholder="1111-2222-3333-4444">
+        </div>
+        <div class="input-line">
+            <label for="date">Expiring Date</label>
+            <input type="text" name="date" id="date" placeholder="MM/YY">
+        </div>
+        <div class="input-line">
+            <label for="cvc">CVC</label>
+            <input type="text" name="cvc" id="cvc" placeholder="***">
+        </div>
+        <input type="submit" value="Complete Purchase" class="btn-purchase">
+       </form>
+    </div>
+</body>
+</html>
